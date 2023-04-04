@@ -1,3 +1,13 @@
+/* Node.js              Browser
+  - No DOM              - DOM
+  - No Window           - Window
+  - Server Side  Apps   - Interactive Apps
+  - Filesystem          - No Filesystem
+  - Versions            - Fragmentation
+  - CommonJS            - ES Modules
+*/
+
+
 const amount = 11
 
 if (amount < 10) {

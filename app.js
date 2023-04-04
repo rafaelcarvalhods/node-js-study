@@ -1,21 +1,10 @@
-const http = require('http');
+// "npm" - global command (comes with node)
+// "npm --version" - shows npm version installed
 
-const server = http.createServer((req, res) => {
+// instal local dependency - use it in this particular project
+// "npm i <packageName>"
 
-    if(req.url === '/') {
-      res.end('Welcome to my home page!')
-    }
+// install global dependency - use it in any project
+// npm install -g <packageName>
+// 
 
-    if(req.url === '/about') {
-      res.end(`My name is Rafael. I'm a backend developer!`)
-    }
-
-    if(req.url === '/error') {
-      res.end(
-        `<h1>Ooops!</h1>
-        <p>Something went wrong!!!</p>
-        <a href='/'>Back to Home Page</a>`)
-    }
-})
-
-server.listen(3000)
