@@ -12,5 +12,17 @@
   // npm init (step by step)
   // npm init -y (everything default)
 
-  
+// include a package in '.gitignore' by putting the filename
+  // example: '/node_modules'
 
+// if anyone clones my project, just need to run 'npm install' and all the necessary dependencies are installed automatically
+  // npm will check for dependencies tha we have in package.json
+
+// instal a <package> as Dev dependency
+  // 'npm i <packageName> -D' or 'npm i <packageName> --save-dev
+
+
+const _ = require('lodash')
+
+const items = [1, 2[3, 4, [5, 6]]]
+const newItems
