@@ -1,53 +1,17 @@
-const { readFile, writeFile } = require('fs').promises;
+// Event-Driven Programming
 
-const start = async() => {
-  try {
-    const first = await readFile('./content/first.txt', 'utf8');
-    await writeFile('./content/write-file', "I'm rewriting this file!")
-    console.log(first)
-  } catch (error) {
-    console.log(error)
-  }
-}
+const EventEmitter = require('events');
 
-start()
+const customEvent = new EventEmitter();
 
-/*_____________________________________*/
+// listen to the event
+customEvent.on('response', () => {
+  console.log('data received')
+})
 
-// #2 - Uses 'util' module to meke readFile return a promise
-// const util = require('util');
-// const readFilePromise = util.promisify(readFile)
-// const writeFilePromise = util.promisify(writeFile)
+// as many listen events as we want/need
+customEvent.on('response', ()=> {
+  console.log("another data received")
+})
 
-// const start = async() => {
-//   try {
-//     const first = await readFilePromise('./content/first.txt', 'utf8');
-//     await writeFilePromise('./content/write-file', "I'm rewriting this file!")
-//     console.log(first)
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
-
-// start()
-
-/*__________________________________*/
-
-// #1 - Make getText return a promise
-// const { readFile, writeFile } = require('fs')
-
-// const getText = (path) => {
-//   return new Promise((resolve, reject) => {
-//     readFile(path, 'utf8', (err, data) => {
-//       if (err) {
-//         reject(err)
-//       } else {
-//         resolve(data)
-//       }
-//     })
-//   })
-// }
-
-// getText('./content/first.txt')
-//   .then(data => console.log(data))
-//   .catch(err => console.log(err))
+customEvent.emit('response')
