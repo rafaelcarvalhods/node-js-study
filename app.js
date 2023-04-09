@@ -1,17 +1,13 @@
-// Event-Driven Programming
-
 const EventEmitter = require('events');
 
-const customEvent = new EventEmitter();
+const customEvent = new EventEmitter()
 
-// listen to the event
-customEvent.on('response', () => {
-  console.log('data received')
+customEvent.on("response", () => {
+  console.log("data received")
 })
 
-// as many listen events as we want/need
-customEvent.on('response', ()=> {
-  console.log("another data received")
+customEvent.on("response", (username, id) => {
+  console.log(`username: ${username} id: ${id}`)
 })
 
-customEvent.emit('response')
+customEvent.emit("response", "rafa", 21)
