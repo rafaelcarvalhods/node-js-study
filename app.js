@@ -1,15 +1,11 @@
-const http = require('http');
+// Streams - read or write sequentially
 
-// const server = http.createServer((req, res) => {
-//   res.end("Hi!")
-// })
+// Read the file in chunks (64KB)
 
-//Using Event Emitter API
-const server = http.createServer(); // emits request events
+const { createReadStream } = require('fs');
 
-// subscribe to it / listen to it / respond to it
-server.on('request', (req, res) => {
-  res.end('Hi!')
+const stream = createReadStream('./content/big.txt')
+
+stream.on('data', (result) => {
+  console.log(result)
 })
-
-server.listen(5000)
